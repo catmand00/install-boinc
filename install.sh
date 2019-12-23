@@ -13,7 +13,7 @@ apt install -y boinc-client boinctui
 echo -e "[Service]\nExecStart=\nExecStart=-/sbin/agetty --autologin root --noclear %I 38400 linux" >/etc/systemd/system/getty@tty1.service.d/override.conf
 
 # Set laptop lid to do nothing
-echo -e "HandleLidSwitch=ignore\nHandleLidSwitchExternalPower=ignore\nHandleLidSwitchDocked=ignore\n" >>/etc/systemd/logind.conF
+echo -e "\nHandleLidSwitch=ignore\nHandleLidSwitchExternalPower=ignore\nHandleLidSwitchDocked=ignore\n" >>/etc/systemd/logind.conf
 
 systemctl enable boinc-client
 systemctl start boinc-client
