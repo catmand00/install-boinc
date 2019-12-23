@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -z "${WCG_ACCOUNT_KEY}" ]; then
-    echo "Need to set WGC_ACCOUNT_KEY"
+    echo "Need to set WCG_ACCOUNT_KEY"
     exit
 fi
 
