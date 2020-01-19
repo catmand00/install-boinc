@@ -15,15 +15,17 @@ echo -e "[Service]\nExecStart=\nExecStart=-/sbin/agetty --autologin root --nocle
 # Set laptop lid to do nothing
 echo -e "\nHandleLidSwitch=ignore\nHandleLidSwitchExternalPower=ignore\nHandleLidSwitchDocked=ignore\n" >>/etc/systemd/logind.conf
 
-systemctl enable boinc-client
-systemctl start boinc-client
+service start boinc-client
 
+touch /var/lib/boinc/gui_rpc_auth.cfg
 chmod g+r /var/lib/boinc/gui_rpc_auth.cfg
 
 echo "Waiting for BOINC client..."
 sleep 5
 
 echo "Now attaching project"
+cd /var/lib/boinc
 boinccmd --project_attach www.worldcommunitygrid.org "${WCG_ACCOUNT_KEY}"
 boinccmd --set_run_mode always
 boinccmd --set_network_mode always
+cd -
