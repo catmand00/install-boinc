@@ -2,6 +2,7 @@
 
 if [ -z "${WCG_ACCOUNT_KEY}" ]; then
     echo "Need to set WCG_ACCOUNT_KEY"
+    echo "Go here and find the account key: https://www.worldcommunitygrid.org/ms/viewMyProfile.do"
     exit
 fi
 
